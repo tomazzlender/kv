@@ -2,7 +2,7 @@ defmodule KV.RegistryTest do
   use ExUnit.Case, async: true
 
   setup do
-    {:ok, reg} = KV.Registry.start_link([])
+    reg = start_link_supervised!(KV.Registry)
     %{server: reg}
   end
 
