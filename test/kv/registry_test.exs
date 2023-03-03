@@ -16,4 +16,16 @@ defmodule KV.RegistryTest do
     assert KV.Bucket.get(bucket, "milk") == 3
   end
 
+  test "removes bucket if bucket crashes", %{server: reg} do
+    KV.Registry.create(reg, "shopping")
+    assert {:ok, bucket } = KV.Registry.lookup(reg, "shopping")
+
+    # let it crash ...
+    Agent.stop(bucket)
+
+    # ... and the bucket should no longer be returned on a
+    # lookup
+    assert KV.Registry.lookup(reg, "shopping") == :error
+  end
+
 end
