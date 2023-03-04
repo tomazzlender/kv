@@ -1,7 +1,10 @@
 defmodule KV.Supervisor do
   use Supervisor
 
+  require Logger
+
   def start_link(opts) do
+    Logger.debug "KV.Supervisor start"
     Supervisor.start_link(__MODULE__, :ok, opts)
   end
 
