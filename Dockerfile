@@ -1,4 +1,4 @@
-FROM elixir:1.14.5 AS build-env
+FROM elixir:1.13.4 AS build-env
 
 ADD . /app
 WORKDIR /app
