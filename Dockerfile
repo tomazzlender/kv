@@ -1,4 +1,4 @@
-FROM hexpm/elixir:1.14.5-erlang-26.0.1-debian-bullseye-20230522 AS build-env
+FROM hexpm/elixir:1.14.5-erlang-25.3.2.2-debian-bullseye-20230522 AS build-env
 
 ADD . /app
 WORKDIR /app
